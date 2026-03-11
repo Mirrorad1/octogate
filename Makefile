@@ -26,7 +26,7 @@ clean:
 
 test:
 	@echo "Running tests..."
-	go test ./...
+	go test -timeout 60s ./...
 
 install-cli: build-cli
 	@echo "Installing x402 to ~/bin/..."

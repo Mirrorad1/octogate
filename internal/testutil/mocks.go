@@ -108,6 +108,11 @@ func (m *MockStore) CheckHealth(ctx context.Context) (map[string]interface{}, er
 	return m.health, nil
 }
 
+// Close closes the mock store (no-op for testing)
+func (m *MockStore) Close() error {
+	return nil
+}
+
 // GetEvents returns all recorded events (for testing)
 func (m *MockStore) GetEvents() []map[string]interface{} {
 	m.mu.RLock()
