@@ -1,0 +1,1 @@
+git clone https://github.com/blader/Claudeception.git ~/.claude/skills/claudeception

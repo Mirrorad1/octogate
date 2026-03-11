@@ -1,0 +1,11 @@
+bin/
+*.o
+*.a
+*.so
+.DS_Store
+*.swp
+*.swo
+*~
+.env
+.env.local
+dist/
