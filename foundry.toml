@@ -1,0 +1,25 @@
+[profile.default]
+src = "contracts"
+out = "out"
+libs = ["lib"]
+test = "test"
+script = "script"
+solc = "0.8.20"
+
+# Base Sepolia RPC
+[profile.sepolia]
+chain-id = 84532
+
+[profile.mainnet]
+chain-id = 8453
+
+# Compilation settings
+[profile.default.solc_config]
+optimizer = { enabled = true, runs = 200 }
+
+# Formatter
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = true
+number_underscores = "thousands"
