@@ -25,8 +25,22 @@ clean:
 	rm -rf ./bin
 
 test:
-	@echo "Running tests..."
+	@echo "Running tests (from cache if available)..."
+	@echo "Packages: cmd/hub, internal/handlers, internal/middleware, internal/payment"
 	go test -timeout 60s ./...
+
+test-fresh:
+	@echo "Running tests (fresh, clearing cache)..."
+	go clean -testcache
+	go test -timeout 60s ./...
+
+test-each:
+	@echo "Running tests individually (works around concurrency issues)..."
+	go test -timeout 60s ./cmd/hub && \
+	go test -timeout 60s ./internal/handlers && \
+	go test -timeout 60s ./internal/middleware && \
+	go test -timeout 60s ./internal/payment && \
+	echo "✓ All tests passed"
 
 install-cli: build-cli
 	@echo "Installing x402 to ~/bin/..."
